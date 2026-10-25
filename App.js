@@ -1,20 +1,17 @@
+// App.js
+// Root of the app. SafeAreaProvider must wrap everything so that any
+// SafeAreaView inside can know the safe margins of the device.
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import PokemonListScreen from './screens/PokemonListScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <StatusBar style="dark" />
+      {/* Next step: tapping a card will open the detail view */}
+      <PokemonListScreen />
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
